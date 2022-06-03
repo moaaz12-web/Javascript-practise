@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            width: 15vw;
+            height: 63vh;
+        }
+
+        .div1{
+            width: 14vw;
+            height: 62vh;
+            margin:4px;
+            border:1px solid gray
+        }
+
+        .row1{
+            height:4vh
+        }
+        .row1, .row2, .row3, .row4, .row5{
+            border: 2px solid gray;
+        }
+
+        .row2, .row3, .row4, .row5{
+            display: flex;
+            justify-content: space-between;
+            align-items: centre;
+
+        }
+
+        button{
+            width: 5vw;
+            margin-right: 3px;
+        }
+
+        p{
+            margin-left: 3px;
+            border: 2px solid gray;
+        }
+
+        .pp{
+            height: 8vh;
+            text-align: center;
+        }
+
+        button{
+            margin-top: 2.2vh;
+            height: 9vh;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="div1">
+
+            <div class="row1">Select an operation:</div>
+            <div class="row2">
+                <p class="pp">Addition</p>
+                <button onclick="add()">+</button>
+
+            </div>
+            <div class="row3">
+                <p class="pp">Subtraction</p>
+                <button onclick="sub()">-</button>
+
+            </div>
+            <div class="row4">
+                <p class="pp">Multiplication</p>
+                <button onclick="mult()">*</button>
+
+            </div>
+            <div class="row5">
+                <p class="pp">Division</p>
+                <button onclick="divvy()">/</button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let n1 = prompt("Enter a number")
+        let n2 = prompt("Enter another number")
+
+        let num1 = parseInt(n1)
+        let num2 = parseInt(n2)
+
+        function add(){
+            alert(`Result of ${num1} + ${num2} = ${num1+num2}`)
+            let p =document.createElement('h3')
+            p.innerHTML = `Result of ${num1} + ${num2} = ${num1+num2}`
+            document.body.append(p)
+        }
+
+        function sub(){
+            alert(`Result of ${num1} - ${num2} = ${num1-num2}`)
+            let p =document.createElement('h3')
+            p.innerHTML = `Result of ${num1} - ${num2} = ${num1-num2}`
+            document.body.append(p) 
+        }
+
+        function mult(){
+            alert(`Result of ${num1} * ${num2} = ${num1*num2}`)
+            let p =document.createElement('h3')
+            p.innerHTML = `Result of ${num1} * ${num2} = ${num1*num2}`
+            document.body.append(p)
+        }
+
+        function divvy(){
+            alert(`Result of ${num1} / ${num2} = ${num1/num2}`)
+            let p =document.createElement('h3')
+            p.innerHTML = `Result of ${num1} / ${num2} = ${num1/num2}`
+            document.body.append(p)
+        }
+
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            margin: 5vh 2vh 8vh 0vh;
+            width:max-content;
+            height: max-content;
+            border: 3px solid black;
+            background-color: greenyellow;
+        }
+        
+
+        .row1{width: max-content; height: max-content; border: 1px solid black; margin: 2px;}
+        
+        button{width:max-content; height: max-content;}
+
+        .outputs{width:100%; height: max-content; display: flex;}
+
+
+        .tableoutput{width:15vw; height: max-content; border: 2px solid green;}
+    
+        .poweroutput{width:15vw; margin-left:10vw;height: max-content; border: 2px solid rgb(255, 123, 0)}
+        .sequenceoutput{width:15vw; margin-left:10vw;height: max-content; border: 2px solid rgb(139, 6, 247)}
+        .evenoddoutput{width:15vw; margin-left:10vw;height: max-content; border: 2px solid rgb(243, 8, 8)}
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="row1">Select any one option:</div>
+        <div class="row1"><button onclick="table()">Generate table</button></div>
+        <div class="row1"><button onclick="power()">Calculate power</button></div>
+        <div class="row1"><button onclick="sequence()">Generate sequence</button></div>
+        <div class="row1"><button onclick="evenodd()">Generate odd or even no.</button></div>
+    </div>
+    <H2>OUTPUTS:</H2>
+    <div class="outputs">
+        <div class="tableoutput"></div>
+
+        <div class="poweroutput"></div>
+        <div class="sequenceoutput"></div>
+        <div class="evenoddoutput"></div>
+
+    </div>
+
+    <script>
+
+        function evenodd(){
+            div = document.querySelector('.evenoddoutput')
+            div.innerHTML = ' ';
+            temp1 = prompt("Enter E for even number and O for odd number")
+
+            let arr = []
+
+
+            r = prompt("Enter range")
+            range = parseInt(r)
+            if (temp1 == 'E'){
+                for (let i = 2; i<= range; i=i+2){
+                    arr.push(i)
+                }
+                
+                for (let j=0; j< arr.length; j++){
+                    outs = document.createElement('p')
+
+                    outs.innerHTML = `${arr[j]} \n`
+                    div.appendChild(outs)
+
+                }
+                
+            }
+
+            else if (temp1 == 'O'){
+                for (let i = 1; i<= range; i=i+2){
+                    arr.push(i)
+                }
+                
+                for (let j=0; j< arr.length; j++){
+                    outs = document.createElement('p')
+
+                    outs.innerHTML = `${arr[j]} \n`
+                    div.appendChild(outs)
+
+                }
+
+            }
+
+            else{
+                alert("Enter valid chracter!")
+            }
+
+        }
+
+        function sequence(){
+            out = document.querySelector('.sequenceoutput')
+            out.innerHTML = ' ';
+
+            temp1 = prompt("Enter seqeuce range:")
+            range = parseInt(temp1)
+            let arr=[]
+             
+            for (let i = 0; i<= range; i++){
+                arr.push(i)
+            }
+
+
+
+            for(let j =0; j<=range; j++){
+                res = `${arr[j]} \n`;
+                output = document.createElement('p')
+                output.innerHTML = res;
+                output.style.color = "purple";
+                output.style.marginLeft = "10px";
+                out.appendChild(output)
+                
+
+            }
+        }
+
+        function power(){
+            output = document.querySelector('.poweroutput')
+            output.innerHTML = ' ';
+            temp = prompt("Enter the base:")
+            base = parseInt(temp)
+            temp1 = prompt("Enter the power")
+            power = parseInt(temp1)
+
+
+            let res =   `The number ${base} raised to the power of ${power} is ${base**power}.`
+
+
+            outs = document.createElement('p')
+            outs.innerHTML = res;
+            outs.style.color = "red";
+            outs.style.marginLeft = "10px"
+            output.appendChild(outs)
+
+        }
+        function table(){
+            output = document.querySelector('.tableoutput')
+            output.innerHTML = ' ';
+            tnos = prompt("Enter table no")
+            tno = parseInt(tnos)
+
+            range = prompt("Enter range:")
+            trange = parseInt(range)
+            let arr = []
+
+            for (let i =0; i<=range; i++){
+                y = `${tno} * ${i} = ${tno*i}`
+                arr.push(y)
+            }
+
+
+
+            for (let k =0; k<=range; k++){
+                pp = document.createElement('p')
+                pp.innerHTML = `${arr[k]} \n`
+                pp.style.color = "red"
+                pp.style.marginLeft = "12px"
+                output.appendChild(pp)
+            }
+
+        }
+    </script>
+</body>
+</html>
