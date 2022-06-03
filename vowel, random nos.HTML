@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .div1{
+            margin-right: 10vh;
+            border: 2px solid red;
+            width: 50%;
+            height: 100%;
+        }
+
+        .div2{
+            border: 2px solid green;
+            width: 50%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div1">
+        <button onclick="vowel()">CHECK VOWEL</button>
+
+
+    </div>
+
+    <div class="div2">
+        <button onclick="randoms()"> GENERATE RANDOM NUMBERS</button>
+
+    </div>
+
+
+
+    
+    
+    <script>
+        function vowel(){
+            var div1 = document.querySelector('.div1')
+            var char = document.createElement('p')
+            let arr = ['a', 'e', 'i', 'o', 'u']
+            var test = prompt('Enter a character:')
+
+            if (test.length != 1){
+                alert("Enter valid character")
+            }
+
+            for (let i =0; i<arr.length; i++){
+                if (arr[i] == test.toLowerCase()){
+                    char.innerHTML = `You entered ${test}, which is a vowel.`
+                    div1.appendChild(char)
+                    break;
+                }
+                else{
+                    char.innerHTML = `You entered ${test}, which is a consonant.`
+                    div1.appendChild(char)
+                }
+            }
+        }
+
+        function randoms(){
+            let arr = []
+            for (let i =0; i<20; i++){
+                arr.push(Math.floor(Math.random() * 10))
+
+            }
+            var div2 = document.querySelector('.div2')
+            var numbers = document.createElement('p')
+
+            numbers.innerHTML = arr
+            div2.appendChild(numbers)
+
+
+
+        }
+    </script>
+</body>
+</html>
